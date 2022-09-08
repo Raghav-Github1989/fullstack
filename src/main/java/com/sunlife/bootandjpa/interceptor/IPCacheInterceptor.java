@@ -8,8 +8,9 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
+import org.springframework.web.context.request.WebRequestInterceptor;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import org.springframework.web.servlet.handler.WebRequestHandlerInterceptorAdapter;
 
 import com.sunlife.bootandjpa.controller.RegistrationController;
 
@@ -18,8 +19,12 @@ import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.Element;
 
 @Component
-public class IPCacheInterceptor extends HandlerInterceptorAdapter{
+public class IPCacheInterceptor extends WebRequestHandlerInterceptorAdapter{
 	
+	public IPCacheInterceptor(WebRequestInterceptor requestInterceptor) {
+		super(requestInterceptor);
+	}
+
 	private static final Logger logger = LogManager.getLogger(RegistrationController.class);
 
 	@Autowired
