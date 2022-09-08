@@ -34,7 +34,22 @@
 	
 					<!-- Status Tab -->
 					<div id="statusTabContent">
-						<h4>Bot detected</h4>
+						<h4>Following table contains pre-filled data</h4>
+						<form action="register" method="post" name="emp">
+						<table class="table table-bordered">
+							<tbody id="configDataTable">
+								<tr><td>First Name</td><td><input type="text" name="firstName" value="Harry"></td></tr>
+								<tr><td>Last Name</td><td><input type="text" name="lastName" value="Potter"></td></tr>
+								<tr><td>Designation</td><td><input type="text" name="designation" value="Magician"></td></tr>
+								<tr><td>Year of Joining</td><td><input type="text" name="yearOfJoining" value="2005"></td></tr>
+								<tr><td>Contact</td><td><input type="text" name="contact" value="+123456789"></td></tr>
+								<tr><td>Address</td><td><textarea rows="3" cols="24" name="address">12 Picket Post Close in Bracknell, Berkshire</textarea></td></tr>
+							</tbody>
+						</table>
+						<div style="text-align: center;">
+							<input type="submit" class="btn btn-default migration" value="Click Me" />
+						</div>
+						</form>
 					</div>
 				</div>
 			</div>

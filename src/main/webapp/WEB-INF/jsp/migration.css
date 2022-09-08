@@ -1,0 +1,29 @@
+@charset "ISO-8859-1";
+.tab-container {
+        border-bottom: 2px solid var(--slf-medium-yellow);
+        display: flex;
+        margin-bottom: 16px;
+        .tab1 {
+            align-items: center;
+            background: transparent;
+            cursor: pointer;
+            display: inline-flex;
+            justify-content: center;
+            padding: 8px;
+            width: 33.33%;
+            &.tab-selected {
+                border-bottom: 5px solid var(--slf-medium-yellow);
+                color: var(var(--slf-medium-blue));
+                padding-top: 13px;
+            }
+            &:last-child {
+                border-right: 0;
+            }
+        }
+        .tab2 {
+            @extend .tab1;
+        }
+        .tab3 {
+            @extend .tab1;
+        }
+    }
