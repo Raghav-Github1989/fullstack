@@ -1,1 +1,40 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd" updateCheck="false">
 
+	<!-- Cache Database  -->
+	<cache name="identificationAttemptCache"
+		eternal="false"
+		overflowToDisk="false"
+		maxEntriesLocalHeap="2000"
+		timeToIdleSeconds="900"
+		timeToLiveSeconds="0"
+		memoryStoreEvictionPolicy="LRU" />
+
+	<!-- Cache Database -->
+	<cache name="identificationLockdownCache"
+		eternal="false"
+		overflowToDisk="false"
+		maxEntriesLocalHeap="2000"
+		timeToIdleSeconds="0"
+		timeToLiveSeconds="3600"
+		memoryStoreEvictionPolicy="LRU" />
+		
+	<!-- Cache Database for IPAddess Count for DOS -->
+	<!--  In 10 mins, we can manage to track 3000 IPs -->
+		<cache name="IPLockoutCounter"
+		eternal="false"
+		overflowToDisk="false"
+		maxEntriesLocalHeap="3000"
+		timeToIdleSeconds="0"
+		timeToLiveSeconds="6000"
+		memoryStoreEvictionPolicy="LRU" />
+	
+	<!-- Cache Database for Lockout IP: Requester will be blocked for an hour -->
+		<cache name="IPLockout"
+		eternal="false"
+		overflowToDisk="false"
+		maxEntriesLocalHeap="3000"
+		timeToIdleSeconds="0"
+		timeToLiveSeconds="7200"
+		memoryStoreEvictionPolicy="LRU" />
+
+</ehcache>
