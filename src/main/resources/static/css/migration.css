@@ -1,1 +1,162 @@
+body {
+	height: 100vh !important;
+}
+a {
+	font-family: 'SunLifeSansRegular' !important;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'SunLifeSansMedium' !important;
+	margin: 16px 0;
+}
+.genGuideCls {
+	list-style: none;
+}
 
+.genGuideCls li::before {
+	content: "\2022" !important;
+	font-size: 20px !important;
+	font-weight: bold;
+	display: inline-block;
+	width: 2em;
+}
+
+.copy-rights {
+	align-items: center;
+}
+
+.copy-rights [class^="col-"] {
+	margin-bottom: 0;
+}
+
+footer .list-inline li {
+	display: inline-block;
+}
+
+.dataTD {
+	word-break: break-word;
+}
+
+.btn {
+	border: 1px solid #00000026 !important;
+}
+
+.btn:hover,.btn:disabled {
+	background-color: #ebebe0;
+}
+
+.migration {
+	text-decoration: none;
+	background-color: #ffcb05;
+	color: #004C6C;
+	font-weight: 700;
+    min-height: 44px;
+    border: 0 !important;
+    border-radius: 4px !important;
+}
+
+th {
+	background: #004C6C;
+	color: #fff;
+}
+.tblTD{
+	font-size: 17px;
+    font-weight: bold;
+}
+
+.genGuideCls li {
+    font-family: 'SunLifeSansRegular' !important;
+}
+
+b{
+	font-weight: bold !important;
+}
+/* Sun Life Sans Font Family*/
+@font-face {
+    font-family: "SunLifeSansRegular";
+    src: url(../fonts/SunLifeSans-Regular.otf);
+}
+
+@font-face {
+    font-family: "SunLifeSansBold";
+    src: url(../fonts/SunLifeSans-Bold.otf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "SunLifeSansLight";
+    src: url(../fonts/SunLifeSans-Light.otf);
+}
+
+@font-face {
+    font-family: "SunLifeSansMedium";
+    src: url(../fonts/SunLifeSans-Medium.otf);
+    font-weight: 500;
+}
+.tab-container {
+    border-bottom: 5px solid #ffcb05;
+    display: flex;
+    margin-bottom: 24px;
+    margin-top: 24px;
+}
+.tab-container .btn {
+	border-left: 0 !important;
+	border-top:0 !important;
+	border-bottom: 0 !important;
+    border-right: 1px solid white !important;
+}
+.tab-container .btn:hover {
+	background: #004C6C !important;
+}
+.tab-container .active:hover {
+	background: #ffcb05 !important;
+}
+.tab-container li {
+    align-items: center;
+    background: #004C6C;
+    display: inline-flex;
+    font-family: 'SunLifeSansMedium';
+    justify-content: center;
+    padding: 8px;
+    text-align: center;
+    min-width: 150px;
+}
+.tab-container li a {
+	color: #fff;
+	text-decoration: none;
+}
+.tab-container li :last-child {
+    border-right: 0;
+}
+.tab-container .active {
+    background: #ffcb05;
+}
+.tab-container .active a {
+    color: #004C6C;
+}
+
+#configDataTable td:last-child {
+	color: #004C6C;
+}
+.loader-container {
+	align-items: center;
+	background: rgba(0,0,0,0.4);
+	display: none;
+	height: 100%;
+	justify-content: center;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.successful{
+	color:#008000 !important;
+}
+
+.failure{
+	color:#ff0000 !important;
+}
+
+.warning{
+	color:blue; !important;
+}
