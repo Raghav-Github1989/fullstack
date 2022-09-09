@@ -6,10 +6,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.context.request.WebRequestInterceptor;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.WebRequestHandlerInterceptorAdapter;
 
 import com.sunlife.bootandjpa.controller.RegistrationController;
@@ -39,7 +39,8 @@ public class IPCacheInterceptor extends WebRequestHandlerInterceptorAdapter{
 			throws Exception {
 
 		String ipAddress=request.getRemoteAddr();
-		
+		String ipAddress2 =  getIPAdress(request);
+		System.out.println("ipAddress2 : "+ipAddress2);
 		Cache ipLockoutCounterCache = cacheManager.getCache(IPADDRESS_LOCKOUTCOUNTER_CACHE_DB);
 		Cache ipLockoutCache = cacheManager.getCache(IPADDRESS_LOCKOUT_CACHE_DB);
 		logger.info("IP Address-based Cleared from ipLockoutCache :: " + ipLockoutCache.getKeys());
@@ -108,7 +109,7 @@ public class IPCacheInterceptor extends WebRequestHandlerInterceptorAdapter{
 
 		// Check if IP address-based identification is to be locked based on the Guest email validator.
 		if (ipAddress != null && ipAddress.length() > 0) {
-			Integer currentAttemptCount = new Integer(0);
+			Integer currentAttemptCount = 0;
 			cachedValue = ipLockoutCounterCache.get(ipAddress);
 
 			// Retrieve the current IP attempt count from the cache database.
@@ -133,11 +134,10 @@ public class IPCacheInterceptor extends WebRequestHandlerInterceptorAdapter{
 			}
 		}
 	}
-
+	
 	@Override
-	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
-			ModelAndView modelAndView) throws Exception {
-		super.postHandle(request, response, handler, modelAndView);
+	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable Exception ex) throws Exception {
+		logger.info("after completion executed");
 	}
 
 }
